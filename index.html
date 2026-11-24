@@ -5,130 +5,255 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ahmed Mejbri | Security Engineer</title>
 <meta name="description" content="Ahmed Mejbri, Security Engineer: ISO 27001 GRC, infrastructure security and DevSecOps.">
+<meta property="og:title" content="Ahmed Mejbri | Security Engineer">
+<meta property="og:description" content="ISO 27001 GRC, infrastructure security and DevSecOps.">
+<meta property="og:url" content="https://ahmedmejbri.me">
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 4 7v8c0 7.5 5.1 13.4 12 15 6.9-1.6 12-7.5 12-15V7z' fill='%232563eb'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 2 4 7v8c0 7.5 5.1 13.4 12 15 6.9-1.6 12-7.5 12-15V7z' fill='%2314b8a6'/%3E%3C/svg%3E">
 <style>
-:root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--muted:#475569;--line:#e2e8f0;--accent:#2563eb;--chip:#eff6ff}
-@media (prefers-color-scheme:dark){:root{--bg:#0b1120;--card:#111827;--text:#e5e7eb;--muted:#9ca3af;--line:#1f2937;--accent:#60a5fa;--chip:#172554}}
+:root{
+  --bg:#f6f7f9;--surface:#ffffff;--text:#0f172a;--muted:#5b6472;--line:#e3e6eb;
+  --accent:#0d9488;--accent-soft:#ccfbf1;--hero1:#0b1220;--hero2:#0f2a2e;--hero-text:#e6edf3;--hero-muted:#9fb1bd;
+  --mono:ui-monospace,"Cascadia Code","SF Mono",Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#0a0f17;--surface:#111823;--text:#e6edf3;--muted:#94a3b8;--line:#1e2836;
+  --accent:#2dd4bf;--accent-soft:#0f2f2d;
+}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-main{max-width:860px;margin:0 auto;padding:48px 16px 64px}
-a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
-header h1{margin:0;font-size:2.2rem;letter-spacing:-.02em}
-header .role{margin:4px 0 12px;font-size:1.15rem;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.links a{border:1px solid var(--line);background:var(--card);padding:6px 14px;border-radius:999px;font-size:.95rem}
-section{margin-top:40px}
-h2{font-size:.85rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 14px;border-bottom:1px solid var(--line);padding-bottom:8px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin-bottom:12px}
-.card h3{margin:0;font-size:1.05rem}
-.meta{color:var(--muted);font-size:.9rem;margin:2px 0 8px}
-.card p,.card ul{margin:6px 0 0}
-.card ul{padding-left:20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px}
-.grid .card{margin:0}
-.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
-.chips span{background:var(--chip);color:var(--accent);font-size:.8rem;padding:2px 10px;border-radius:999px}
-.list{margin:0;padding-left:20px}
-footer{margin-top:48px;color:var(--muted);font-size:.85rem;text-align:center}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:5;background:rgba(11,18,32,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.06)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+.brand{font-family:var(--mono);color:#e6edf3;font-weight:600;letter-spacing:.02em}
+.brand span{color:#2dd4bf}
+.top nav a{color:#c3cfd9;font-size:.9rem;margin-left:20px}
+.top nav a:hover{color:#fff;text-decoration:none}
+@media (max-width:640px){.top nav{display:none}}
+
+/* hero */
+.hero{background:radial-gradient(1200px 500px at 85% -10%,rgba(45,212,191,.18),transparent 60%),linear-gradient(160deg,var(--hero1),var(--hero2));color:var(--hero-text);padding:88px 0 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:40px 40px;mask-image:linear-gradient(to bottom,#000 30%,transparent);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.kicker{font-family:var(--mono);color:#2dd4bf;font-size:.9rem;margin:0 0 14px}
+.hero h1{font-size:clamp(2.4rem,6vw,3.6rem);line-height:1.1;margin:0 0 14px;letter-spacing:-.03em}
+.hero .lead{font-size:1.15rem;color:var(--hero-muted);max-width:620px;margin:0 0 30px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid rgba(255,255,255,.18);color:#e6edf3}
+.btn:hover{text-decoration:none;border-color:#2dd4bf;color:#fff}
+.btn.primary{background:#14b8a6;border-color:#14b8a6;color:#04201d}
+.btn.primary:hover{background:#2dd4bf;color:#04201d}
+.btn svg{width:18px;height:18px;fill:currentColor}
+
+/* sections */
+section{padding:64px 0 8px}
+.label{font-family:var(--mono);font-size:.8rem;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin:0 0 6px}
+h2{font-size:1.7rem;margin:0 0 26px;letter-spacing:-.02em}
+
+/* focus */
+.focus{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.icon{width:42px;height:42px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;margin-bottom:14px}
+.icon svg{width:22px;height:22px;stroke:var(--accent);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.box h3{margin:0 0 6px;font-size:1.08rem}
+.box p{margin:0;color:var(--muted);font-size:.96rem}
+
+/* timeline */
+.timeline{position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.item{position:relative;margin-bottom:22px}
+.item::before{content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+.item h3{margin:0;font-size:1.08rem}
+.item .meta{font-family:var(--mono);font-size:.82rem;color:var(--muted);margin:2px 0 6px}
+.item p,.item ul{margin:0;color:var(--muted)}
+.item ul{padding-left:18px}
+
+/* projects */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.card{display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;color:var(--text);transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease}
+.card:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 10px 30px -18px rgba(13,148,136,.6);text-decoration:none}
+.card h3{margin:0 0 8px;font-size:1.05rem}
+.card p{margin:0 0 14px;color:var(--muted);font-size:.95rem;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-family:var(--mono);font-size:.75rem;padding:3px 9px;border-radius:6px;background:var(--accent-soft);color:var(--accent)}
+.repo{font-family:var(--mono);font-size:.8rem;color:var(--accent);margin-top:12px}
+
+/* two col */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.two{grid-template-columns:1fr}}
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:10px 0;border-bottom:1px solid var(--line)}
+.list li:last-child{border-bottom:0}
+.list strong{display:block;font-weight:600}
+.list span{color:var(--muted);font-size:.92rem}
+
+/* contact */
+.contact{margin:64px 0 0;background:linear-gradient(160deg,var(--hero1),var(--hero2));color:var(--hero-text);border-radius:18px;padding:40px 32px;text-align:center}
+.contact h2{margin-bottom:10px}
+.contact p{color:var(--hero-muted);margin:0 auto 24px;max-width:520px}
+.contact .btns{justify-content:center}
+footer{padding:32px 0 40px;text-align:center;color:var(--muted);font-size:.85rem;font-family:var(--mono)}
 </style>
 </head>
 <body>
-<main>
-<header>
-  <h1>Ahmed Mejbri</h1>
-  <p class="role">Security Engineer · ISO 27001 GRC &amp; infrastructure security</p>
-  <p>I secure Linux, cloud and container environments, and I build the ISO 27001 documentation and evidence that show those controls work. Engineering degree in systems &amp; network security.</p>
-  <nav class="links" aria-label="Profiles">
-    <a href="https://www.linkedin.com/in/ahmedmejbri" rel="noopener">LinkedIn</a>
-    <a href="https://github.com/Yahmedd" rel="noopener">GitHub</a>
-    <a href="https://tryhackme.com/p/Yahmedd" rel="noopener">TryHackMe</a>
-    <a href="mailto:mejbriahmed10@gmail.com">Email</a>
-  </nav>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand">ahmed<span>@</span>mejbri</div>
+    <nav aria-label="Sections">
+      <a href="#focus">Focus</a><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="kicker">$ whoami</p>
+    <h1>Ahmed Mejbri</h1>
+    <p class="lead">Security Engineer working on ISO 27001 GRC and infrastructure security. I secure Linux, cloud and container environments, and I build the documentation and evidence that prove those controls work.</p>
+    <div class="btns">
+      <a class="btn primary" href="https://www.linkedin.com/in/ahmedmejbri" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+      <a class="btn" href="https://github.com/Yahmedd" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 0-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6 0-3.2 0 0 1-.3 3.4 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.6 1.6.2 2.8.1 3.2.8.8 1.3 1.9 1.3 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>GitHub</a>
+      <a class="btn" href="mailto:mejbriahmed10@gmail.com"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4.2-8 5-8-5V6l8 5 8-5v2.2z"/></svg>Email</a>
+    </div>
+  </div>
 </header>
 
-<section>
+<main class="wrap">
+
+<section id="focus">
+  <p class="label">What I do</p>
+  <h2>Focus areas</h2>
+  <div class="focus">
+    <div class="box">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div>
+      <h3>GRC &amp; ISO 27001</h3>
+      <p>ISMS documentation, policies, risk registers and audit evidence. Mapping NIS2, DORA and SOC 2 to ISO 27001.</p>
+    </div>
+    <div class="box">
+      <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="6" rx="1"/><rect x="3" y="14" width="18" height="6" rx="1"/><path d="M7 7h.01M7 17h.01"/></svg></div>
+      <h3>Infrastructure security</h3>
+      <p>Server hardening, secure administrative access, identity management and vulnerability management.</p>
+    </div>
+    <div class="box">
+      <div class="icon"><svg viewBox="0 0 24 24"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Cloud &amp; DevSecOps</h3>
+      <p>Secure AWS environments and CI/CD security gates: SAST, dependency, secret and container scanning.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <p class="label">Career</p>
   <h2>Experience</h2>
-  <div class="card">
-    <h3>Security Engineer · Freelance</h3>
-    <p class="meta">Self-employed · Remote · 2026 – present</p>
-    <ul>
-      <li>Secure administrative access (zero-trust), centralised identity management and server hardening.</li>
-      <li>Vulnerability management: weekly watch, risk-based prioritisation and tracked remediation.</li>
-      <li>ISO 27001:2022 ISMS documentation: policies, risk register, asset inventory and audit evidence.</li>
-      <li>Automated compliance tracking with a Python dashboard.</li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3>Cybersecurity Engineer · Final-year project</h3>
-    <p class="meta">Be Wireless Solutions · Tunis · 2026</p>
-    <p>Built a SOC-as-Code environment with Terraform and Ansible (Wazuh, Suricata, MISP, TheHive, Velociraptor), with detections tuned to MITRE ATT&amp;CK.</p>
-  </div>
-  <div class="card">
-    <h3>Earlier internships</h3>
-    <p class="meta">2023 – 2025</p>
-    <p>Infrastructure monitoring (Euro Tech Conseil) · Network security (Tunisie Telecom) · Data-leak detection &amp; OSINT (ATHENA Experts, Forvis Mazars).</p>
+  <div class="timeline">
+    <div class="item">
+      <h3>Security Engineer · Freelance</h3>
+      <p class="meta">Self-employed · Remote · 2026 – present</p>
+      <ul>
+        <li>Secure administrative access (zero-trust), centralised identity management and server hardening.</li>
+        <li>Vulnerability management: weekly watch, risk-based prioritisation and tracked remediation.</li>
+        <li>ISO 27001:2022 ISMS documentation, risk register, asset inventory and audit evidence.</li>
+        <li>Automated compliance tracking with a Python dashboard.</li>
+      </ul>
+    </div>
+    <div class="item">
+      <h3>Cybersecurity Engineer · Final-year project</h3>
+      <p class="meta">Be Wireless Solutions · Tunis · 2026</p>
+      <p>SOC-as-Code environment built with Terraform and Ansible (Wazuh, Suricata, MISP, TheHive, Velociraptor), detections tuned to MITRE ATT&amp;CK.</p>
+    </div>
+    <div class="item">
+      <h3>Internships</h3>
+      <p class="meta">2023 – 2025</p>
+      <p>Infrastructure monitoring (Euro Tech Conseil) · Network security (Tunisie Telecom) · Data-leak detection &amp; OSINT (ATHENA Experts, Forvis Mazars)</p>
+    </div>
   </div>
 </section>
 
-<section>
+<section id="projects">
+  <p class="label">Portfolio</p>
   <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <h3><a href="https://github.com/Yahmedd/nis2-dora-iso27001-mapping" rel="noopener">NIS2, DORA &amp; SOC 2 → ISO 27001</a></h3>
-      <p>Crosswalk of EU regulations and SOC 2 to ISO 27001:2022, with coverage ratings and the gaps an ISMS must add.</p>
-      <div class="chips"><span>GRC</span><span>NIS2</span><span>DORA</span><span>SOC 2</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/Yahmedd/iso27001-maturity-assessment-sample" rel="noopener">ISO 27001 maturity assessment</a></h3>
+  <div class="projects">
+    <a class="card" href="https://github.com/Yahmedd/nis2-dora-iso27001-mapping" rel="noopener">
+      <h3>NIS2, DORA &amp; SOC 2 → ISO 27001</h3>
+      <p>Crosswalk of EU regulations and SOC 2 to ISO 27001:2022, with coverage ratings and the gaps an ISMS must close.</p>
+      <div class="tags"><span>GRC</span><span>NIS2</span><span>DORA</span><span>SOC 2</span></div>
+      <div class="repo">view repo →</div>
+    </a>
+    <a class="card" href="https://github.com/Yahmedd/iso27001-maturity-assessment-sample" rel="noopener">
+      <h3>ISO 27001 maturity assessment</h3>
       <p>Assessment of a fictional fintech: maturity scoring, EBIOS Risk Manager analysis and a business continuity plan.</p>
-      <div class="chips"><span>ISO 27001</span><span>EBIOS RM</span><span>ISO 22301</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/Yahmedd/isms-rag-platform" rel="noopener">ISMS RAG platform</a></h3>
+      <div class="tags"><span>ISO 27001</span><span>EBIOS RM</span><span>ISO 22301</span></div>
+      <div class="repo">view repo →</div>
+    </a>
+    <a class="card" href="https://github.com/Yahmedd/isms-rag-platform" rel="noopener">
+      <h3>ISMS RAG platform</h3>
       <p>AI assistant for ISO 27001, NIST CSF and CIS Controls, threat-modelled against the OWASP Top 10 for LLMs.</p>
-      <div class="chips"><span>AI security</span><span>Python</span><span>OWASP LLM</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/Yahmedd/devsecops-security" rel="noopener">DevSecOps pipeline</a></h3>
-      <p>CI/CD security gates: SAST, dependency and secret scanning, container scanning.</p>
-      <div class="chips"><span>GitHub Actions</span><span>Trivy</span><span>Gitleaks</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/Yahmedd/aws-cloud-security-lab" rel="noopener">AWS cloud security lab</a></h3>
+      <div class="tags"><span>AI security</span><span>Python</span><span>OWASP LLM</span></div>
+      <div class="repo">view repo →</div>
+    </a>
+    <a class="card" href="https://github.com/Yahmedd/devsecops-security" rel="noopener">
+      <h3>DevSecOps pipeline</h3>
+      <p>CI/CD security gates: static analysis, dependency and secret scanning, container scanning.</p>
+      <div class="tags"><span>GitHub Actions</span><span>Trivy</span><span>Gitleaks</span></div>
+      <div class="repo">view repo →</div>
+    </a>
+    <a class="card" href="https://github.com/Yahmedd/aws-cloud-security-lab" rel="noopener">
+      <h3>AWS cloud security lab</h3>
       <p>Segmented AWS environment with least-privilege IAM, WAF and central monitoring, tested with attack simulations.</p>
-      <div class="chips"><span>AWS</span><span>IAM</span><span>WAF</span></div>
-    </div>
-    <div class="card">
-      <h3><a href="https://github.com/Yahmedd/NetworkScanner" rel="noopener">Network scanner</a></h3>
+      <div class="tags"><span>AWS</span><span>IAM</span><span>WAF</span></div>
+      <div class="repo">view repo →</div>
+    </a>
+    <a class="card" href="https://github.com/Yahmedd/NetworkScanner" rel="noopener">
+      <h3>Network scanner</h3>
       <p>Desktop tool for host discovery, port scanning and service enumeration built on Nmap.</p>
-      <div class="chips"><span>Python</span><span>Nmap</span></div>
-    </div>
+      <div class="tags"><span>Python</span><span>Nmap</span></div>
+      <div class="repo">view repo →</div>
+    </a>
   </div>
 </section>
 
 <section>
-  <h2>Certifications &amp; courses</h2>
-  <ul class="list">
-    <li>eJPT, Junior Penetration Tester (INE)</li>
-    <li>AWS Academy Graduate: Cloud Security Foundations</li>
-    <li>CNIL "L'atelier RGPD" (GDPR), modules 1–4</li>
-    <li>ISO/IEC 27001 Information Security Management Systems (course)</li>
-  </ul>
+  <div class="two">
+    <div class="box">
+      <p class="label">Credentials</p>
+      <h2 style="font-size:1.3rem;margin-bottom:10px">Certifications &amp; courses</h2>
+      <ul class="list">
+        <li><strong>eJPT, Junior Penetration Tester</strong><span>INE</span></li>
+        <li><strong>Cloud Security Foundations</strong><span>AWS Academy Graduate</span></li>
+        <li><strong>L'atelier RGPD (GDPR), modules 1–4</strong><span>CNIL</span></li>
+        <li><strong>ISO/IEC 27001 ISMS</strong><span>Course</span></li>
+      </ul>
+    </div>
+    <div class="box">
+      <p class="label">Background</p>
+      <h2 style="font-size:1.3rem;margin-bottom:10px">Education</h2>
+      <ul class="list">
+        <li><strong>Engineering degree, Systems &amp; Network Security</strong><span>TEK-UP, Tunis</span></li>
+        <li><strong>Master 1, Systems &amp; Infrastructure Security</strong><span>ISI, Tunis</span></li>
+        <li><strong>Bachelor's, Network &amp; Systems Engineering</strong><span>ISI, Tunis</span></li>
+        <li><strong>Languages</strong><span>Arabic (native) · English (C1) · French (B2)</span></li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section>
-  <h2>Education</h2>
-  <ul class="list">
-    <li>Engineering degree, Systems &amp; Network Security · TEK-UP, Tunis · 2026</li>
-    <li>Master 1, Systems &amp; Infrastructure Security · ISI, Tunis · 2024</li>
-    <li>Bachelor's degree, Network &amp; Systems Engineering · ISI, Tunis · 2023</li>
-  </ul>
-  <p class="meta" style="margin-top:12px">Languages: Arabic (native) · English (C1) · French (B2)</p>
-</section>
+<div class="contact" id="contact">
+  <h2>Let's talk security</h2>
+  <p>Questions about GRC, ISO 27001 or infrastructure security? Reach out.</p>
+  <div class="btns">
+    <a class="btn primary" href="mailto:mejbriahmed10@gmail.com">Send an email</a>
+    <a class="btn" href="https://www.linkedin.com/in/ahmedmejbri" rel="noopener">Connect on LinkedIn</a>
+  </div>
+</div>
 
-<footer>© 2026 Ahmed Mejbri</footer>
 </main>
+<footer>© 2026 Ahmed Mejbri · ahmedmejbri.me</footer>
 </body>
 </html>
